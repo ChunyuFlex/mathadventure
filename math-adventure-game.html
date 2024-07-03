@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>小明的魔法數學王國冒險</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+    <meta name="theme-color" content="#4CAF50">
+    <style>
+        body {
+            font-family: 'Microsoft JhengHei', Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        #game-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            color: #4a4a4a;
+            text-align: center;
+        }
+        #story, #question {
+            margin-bottom: 20px;
+        }
+        #options {
+            display: flex;
+            flex-direction: column;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            min-height: 44px;
+            touch-action: manipulation;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        #calendar {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+        #calendar table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        #calendar td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 30px;
+            height: 30px;
+        }
+        #score {
+            text-align: right;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 768px) {
+            #game-container {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            #story, #question {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1>小明的魔法數學王國冒險</h1>
+        <div id="score">分數：<span id="score-value">0</span></div>
+        <div id="story"></div>
+        <div id="question"></div>
+        <div id="options"></div>
+        <div id="calendar"></div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // 遊戲邏輯代碼保持不變
+        // ...（這裡包含之前的所有 JavaScript 代碼）
+
+        // 註冊 Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registered:', registration);
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
